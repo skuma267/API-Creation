@@ -1,7 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
-    <article class="media" style="margin-top: 40%;position: relative;">
-      <div class="media-body" style="left: 18%; position: absolute;">
-        <h1> Welcome to NimbleBox.ai</h1>
+    <article class="media" style="margin-top: 30%;position: relative;">
+      <div class="media-body" style="left: 20%; position: absolute;">
+        {% if current_user.is_authenticated %}
+        <h1> Welcome to TestBox.ai</h1><br>
+        {% else %}
+        <h1> Welcome to TestBox.ai</h1><br>
+		<small><center> To see or post your custom message on TestBox.ai please<a class="ml-2" href="{{url_for('login')}}">Login</a> or<a class="ml-2" href="{{url_for('create_account')}}">Register </a></center></small>
+		{% endif %}
     </article>
 {% endblock content %}

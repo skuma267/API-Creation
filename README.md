@@ -5,11 +5,10 @@
 Install packages by installing requirements.txt file
     
     pip install -r requirements.txt
-			
     
 ## Start the application
 ### To run the code, start with run.py
-Go to the folder where run.py is located and run following command
+Go to the folder where run.py is located and run following command:
  
 	python run.py
     
@@ -21,7 +20,7 @@ If you want to download sqlite database, you can check the given url:
 
     https://www.sqlite.org/download.html
 
-## Documentation of Databse and APIs
+## Documentation of Database and APIs
 The documentation about Database, tables and APIs can be found in Documentation.txt file.
 
 
@@ -30,5 +29,7 @@ The documentation about Database, tables and APIs can be found in Documentation.
 
     email: shubham@test.com
     password: password
+    
+   New users can be created using register facility in application.
     
  

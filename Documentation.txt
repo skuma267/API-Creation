@@ -1,8 +1,8 @@
 Database Used:
-	Sqlite3 database is used and a user.db file is present in folder structure.
+	Sqlite3 database is used and a userinfo.db file is present in folder structure.
 	This database hold two tables:
-		1) User
-		2) Message
+		1) User  - to hold the details of the user.
+		2) Message - to hold the message set by the user.
 	
 	In User table following columns are present:
 		a) id = Integer, primary_key
@@ -33,7 +33,7 @@ API's Defination:
 			"description": "Create acctount landing page."
 			"login-reqired": False
 			"response": "return to the registratation page"
-				["title": 'Create Account',
+				["title": "Create Account",
 				"form": 'RegistrationForm']
 			
 		"POST":
@@ -47,7 +47,7 @@ API's Defination:
 			"description": "Login landing page."
 			"login-reqired": False
 			"response": "return to the login page"
-				["title": 'Login',
+				["title": "Login",
 				"form": 'LoginForm']
 				
 			"POST":
@@ -68,10 +68,10 @@ API's Defination:
 			"login-reqired": True
 			"response": "return to the get_custom_message page"
 				if "message realted to current user in Message table":
-					["title": 'Message',
+					["title": "Message",
 					post": message dict related to current user]
 				else:
-					["title": 'Message',
+					["title": "Message",
 					"post": current user's name ]
 					
 	

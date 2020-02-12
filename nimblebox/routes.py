@@ -3,6 +3,7 @@ from nimblebox import app, db, bcrypt
 from nimblebox.forms import RegistrationForm, LoginForm, MessageForm
 from nimblebox.models import User, Message
 from flask_login import login_user, current_user, logout_user, login_required
+from sqlalchemy import or_
 
 
 @app.route("/")
@@ -11,8 +12,8 @@ def home():
     return render_template('home.html', title='Home')
 
 
-@app.route("/register", methods=['GET', 'POST'])
-def register():
+@app.route("/create_account", methods=['GET', 'POST'])
+def create_account():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     form = RegistrationForm()
@@ -32,13 +33,17 @@ def login():
         return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user and bcrypt.check_password_hash(user.password, form.password.data):
-            login_user(user)
-            next_page = request.args.get('next')
-            return redirect(next_page) if next_page else redirect(url_for('get_message'))
+        user = User.query.filter(or_(User.username == form.email.data, User.email == form.email.data)).first()
+        # user = User.query.filter_by(email=form.email.data).first()
+        if user:
+            if bcrypt.check_password_hash(user.password, form.password.data):
+                login_user(user)
+                next_page = request.args.get('next')
+                return redirect(next_page) if next_page else redirect(url_for('get_message'))
+            else:
+                flash('Login Unsuccessful. Please check email and password', 'danger')
         else:
-            flash('Login Unsuccessful. Please check email and password', 'danger')
+            flash('You are not registered. Please register now!', 'danger')
     return render_template('login.html', title='Login', form=form)
 
 
