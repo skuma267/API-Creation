@@ -5,6 +5,7 @@
 Install packages by installing requirements.txt file
     
     pip install -r requirements.txt
+			
     
 ## Start the application
 ### To run the code, start with run.py
