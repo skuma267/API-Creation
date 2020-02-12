@@ -1,0 +1,94 @@
+Database Used:
+	Sqlite3 database is used and a user.db file is present in folder structure.
+	This database hold two tables:
+		1) User
+		2) Message
+	
+	In User table following columns are present:
+		a) id = Integer, primary_key
+		b) username = String(20), unique=True, nullable=False
+		c) email = String(120), unique=True, nullable=False
+		d) name = String(30), nullable=False
+		e) password = db.String(60), nullable=False, password in hashed form
+		f) posts = It is a relationship with 'Message' table
+		
+	In Message table following columns are present:
+		a) id = Integer, primary_key
+		b) date_posted = DateTime, nullable=False, default=current time
+		c) content = Text, nullable=False
+		d) user_id = Integer, ForeignKey('user.id'), nullable=False
+		
+		
+		
+		
+API's Defination:
+	/home:
+		"GET":
+			"description": "Returns to the home page of the application"
+			"login-reqired": False
+			
+	
+	/register:
+		"GET":
+			"description": "Create acctount landing page."
+			"login-reqired": False
+			"response": "return to the registratation page"
+				["title": 'Create Account',
+				"form": 'RegistrationForm']
+			
+		"POST":
+			"description": "Send form data to database"
+			"login-reqired": False
+			"response": "return to the login page"
+			
+	
+	/login:
+		"GET":
+			"description": "Login landing page."
+			"login-reqired": False
+			"response": "return to the login page"
+				["title": 'Login',
+				"form": 'LoginForm']
+				
+			"POST":
+				"description": "check the credentials"
+				"login-reqired": False
+				"response": "return to the get_custom_message page"
+
+	
+	/logout:
+		"GET":
+			"description": "Make the current user logged out."
+			"response": "return to the home page of the application"
+
+
+	/get_custom_message
+		"GET":
+			"description": "Get the custom message of the current user. If no custom message then showcase Welcome message with the name of the user"
+			"login-reqired": True
+			"response": "return to the get_custom_message page"
+				if "message realted to current user in Message table":
+					["title": 'Message',
+					post": message dict related to current user]
+				else:
+					["title": 'Message',
+					"post": current user's name ]
+					
+	
+	/set_custom_message
+		"GET":
+			"description": "Update the custom message of the current user."
+			"login-reqired": True
+			"response": "return to update message page"
+				["title": "Update Message",
+					"form": "MessageForm"]
+					
+		"POST":
+			"description": "Update the custom message of the current user."
+			"login-reqired": True
+			"response": "return to the get custom message page"
+				
+					
+			
+		
+	

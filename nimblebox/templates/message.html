@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+    <article class="media content-section">
+      <div class="media-body">
+      	{% if post.content %}
+		  	<a class="mr-2" href="{{url_for('set_message')}}" title="Update Your Custom Message">{{post.content }}</a>
+		{% else %}
+			<a class="mr-2" href="{{url_for('set_message')}}" title="Update Your Custom Message">Welcome {{ post}}</a>
+		{% endif %}
+    </article>
+{% endblock content %}
+
+
