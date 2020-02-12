@@ -14,14 +14,14 @@ Go to the folder where run.py is located and run following command
     
 ## Database used
 ### This application uses sqlite3 database
-A database file is in the project itself, named as user.db
+A database file is in the project itself, named as userinfo.db
 
 If you want to download sqlite database, you can check the given url:
 
     https://www.sqlite.org/download.html
 
 ## Documentation of Databse and APIs
-The documentation about Database, tables and APIs can be found in Documnetation.txt file.
+The documentation about Database, tables and APIs can be found in Documentation.txt file.
 
 
 ## Sample user credentials
