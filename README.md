@@ -11,6 +11,10 @@ Install packages by installing requirements.txt file
 Go to the folder where run.py is located and run following command:
  
 	python run.py
+
+To check if the application server is up and running, try the given url:
+ 
+	http://127.0.0.1:5000/
     
 ## Database used
 ### This application uses sqlite3 database
