@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
-from nimblebox.models import User
+from TestBox.models import User
 
 
 class RegistrationForm(FlaskForm):

@@ -1,7 +1,7 @@
 from flask import render_template, url_for, flash, redirect, request, abort
-from nimblebox import app, db, bcrypt
-from nimblebox.forms import RegistrationForm, LoginForm, MessageForm
-from nimblebox.models import User, Message
+from TestBox import app, db, bcrypt
+from TestBox.forms import RegistrationForm, LoginForm, MessageForm
+from TestBox.models import User, Message
 from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import or_
 
